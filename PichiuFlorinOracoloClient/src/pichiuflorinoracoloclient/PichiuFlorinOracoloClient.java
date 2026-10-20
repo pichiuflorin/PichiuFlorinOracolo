@@ -24,16 +24,18 @@ public class PichiuFlorinOracoloClient {
             Scanner scr = new Scanner(System.in);
             
             String serverReply = in.readLine();
-            System.out.println("Oracolo: " + serverReply);
+            System.out.println("Server: " + serverReply);
 
             while (true) {
                 System.out.print("Inserisci comando: ");
-                String comando = scr.nextLine();
+                String command = scr.nextLine();
                 
-                out.println(comando);
+                out.println(command);
                 
                 serverReply = in.readLine();
-                System.out.println("Oracolo: " + serverReply);
+                System.out.println("Server: " + serverReply);
+                
+                if (command.equalsIgnoreCase("quit")) break;
             }
 
         } catch (IOException e) {

@@ -16,6 +16,7 @@ public class PichiuFlorinOracoloServer {
     public static void main(String[] args) {
         ServerSocket Socket;
         Socket client;
+        Oracolo oracolo = new Oracolo();
         int port = 5555; 
         
         try {
@@ -25,8 +26,8 @@ public class PichiuFlorinOracoloServer {
             while (true) {
                 client = Socket.accept();
                 System.out.println("Connessione stabilita con " + client.getInetAddress().toString());
-                //Qui thread per gestione clienti
-                //Qui inizia l'oracolo
+                ClientManagement clientManagement = new ClientManagement(client, oracolo);
+                clientManagement.start();      
             }
         } catch (IOException e) {
             System.err.println(e);
